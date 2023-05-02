@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+    <script>
+      window.RufflePlayer = window.RufflePlayer || {};
+      window.RufflePlayer.config = {
+        "scale": "showAll",
+      };
+      window.addEventListener("load", (event) => {
+        const ruffle = window.RufflePlayer.newest();
+        const player = ruffle.createPlayer();
+        const container = document.getElementById("container");
+        container.appendChild(player);
+        player.load("public/game.swf");
+      });
+    </script>
+  </body>
+</html>
+
